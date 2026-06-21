@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>威尼斯人 · 知识库入口</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f7f4ef;
+      font-family: "Noto Serif SC", "Source Han Serif SC", "Times New Roman", serif;
+      color: #2b2b2b;
+      line-height: 1.75;
+      padding: 2.8rem 1.2rem;
+    }
+
+    .page-wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      background: #fefcf9;
+      padding: 3rem 2.8rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.05);
+      transition: box-shadow 0.2s;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.25em;
+      border-left: 4px solid #b0987a;
+      padding-left: 0.9rem;
+      color: #2c241b;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #6b5e4f;
+      margin-bottom: 2.4rem;
+      padding-left: 1.3rem;
+      border-bottom: 1px solid #e6ddd0;
+      padding-bottom: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+    }
+
+    .subhead span {
+      background: #ede8df;
+      padding: 0.15rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      color: #4d4033;
+    }
+
+    .intro {
+      margin-bottom: 2.2rem;
+    }
+
+    .intro p {
+      margin-bottom: 1.2rem;
+      text-align: justify;
+    }
+
+    .quote-block {
+      background: #f3efe7;
+      border-left: 5px solid #b0987a;
+      padding: 1.2rem 1.8rem;
+      margin: 2rem 0;
+      font-style: normal;
+      border-radius: 0 12px 12px 0;
+      color: #3d352a;
+      font-size: 0.96rem;
+    }
+
+    .section-title {
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin: 2.2rem 0 0.8rem 0;
+      color: #2f261d;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::before {
+      content: "▍";
+      color: #b0987a;
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+
+    .directory-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin: 1.8rem 0 1.4rem;
+    }
+
+    .dir-item {
+      background: #faf7f2;
+      border: 1px solid #e5dcd0;
+      padding: 1.2rem 1rem;
+      border-radius: 14px;
+      transition: background 0.15s, border 0.15s;
+    }
+
+    .dir-item h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #2f261d;
+      margin-bottom: 0.3rem;
+    }
+
+    .dir-item p {
+      font-size: 0.9rem;
+      color: #584c3d;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .dir-item:hover {
+      background: #f3ede4;
+      border-color: #b0987a;
+    }
+
+    .tip-box {
+      background: #f0ebe2;
+      border-radius: 16px;
+      padding: 1.3rem 1.8rem;
+      margin: 2rem 0 1.8rem;
+      border: 1px solid #dbcebc;
+    }
+
+    .tip-box strong {
+      color: #2f261d;
+    }
+
+    .faq-mini {
+      margin: 2rem 0 0.5rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #eee7dd;
+      padding: 1rem 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #2f261d;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-a {
+      color: #4e4235;
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .related-links {
+      margin: 2.4rem 0 1rem;
+      padding: 1.2rem 0;
+      border-top: 1px solid #e3d8ca;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 2.2rem;
+    }
+
+    .related-links a {
+      color: #6b4f32;
+      text-decoration: none;
+      border-bottom: 1px dotted #b0987a;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+
+    .related-links a:hover {
+      color: #3d2a19;
+      border-bottom-style: solid;
+    }
+
+    .footer-note {
+      font-size: 0.85rem;
+      color: #8a7b69;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e8dfd2;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+      .page-wrap {
+        padding: 1.8rem 1.2rem;
+      }
+      h1 {
+        font-size: 1.7rem;
+        padding-left: 0.6rem;
+      }
+      .subhead {
+        padding-left: 0.6rem;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .directory-grid {
+        grid-template-columns: 1fr;
+      }
+      .quote-block {
+        padding: 0.9rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <h1>威尼斯人·知识库</h1>
+  <div class="subhead">
+    <span>再次访问指引</span>
+    <span>收藏与持续关注</span>
+    <span>信息目录</span>
+  </div>
+
+  <div class="intro">
+    <p>对于经常浏览「<a href="https://main-wnsr.com">威尼斯人</a>」相关内容的用户而言，信息的可回溯性与结构化记录往往比即时资讯更重要。本页作为轻量知识库入口，围绕再次访问、收藏管理及持续关注三个维度组织内容，帮助读者快速定位资源、理解上下文，并降低信息遗漏成本。</p>
+    <p>以下内容并非官方文档，而是基于长期使用与观察整理的一份参考索引。无论您是初次接触希望建立个人知识框架，还是已有积累需要高效回顾，均可从此目录中找到切入点。</p>
+  </div>
+
+  <div class="quote-block">
+    <strong>▎使用建议</strong><br>
+    将本页加入浏览器书签或笔记工具，以便在需要时直接调取关键链接与背景说明。若您关注的内容发生结构变化，可定期核对目录摘要，保持知识同步。
+  </div>
+
+  <div class="section-title">目录 · 信息分区</div>
+  <div class="directory-grid">
+    <div class="dir-item">
+      <h3>背景与沿革</h3>
+      <p>发展脉络、定位演变及核心业务范畴，帮助理解当前信息环境。</p>
+    </div>
+    <div class="dir-item">
+      <h3>功能模块索引</h3>
+      <p>主要板块、入口分类及典型使用路径，适合快速导航。</p>
+    </div>
+    <div class="dir-item">
+      <h3>收藏与标签建议</h3>
+      <p>如何利用浏览器、笔记工具或 RSS 建立个人收藏体系。</p>
+    </div>
+    <div class="dir-item">
+      <h3>持续关注机制</h3>
+      <p>通知、动态、更新摘要等被动获取信息的可选方式。</p>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <strong>📌 提示</strong> – 若您此前已将「<a href="https://main-wnsr.com">威尼斯人</a>」页面加入收藏夹，建议定期检查链接有效性，并清理重复或失效条目。对于频繁查阅的板块，可建立子文件夹或标签分组，提升检索效率。
+  </div>
+
+  <div class="section-title">常见关注点 · 摘要</div>
+  <div class="faq-mini">
+    <div class="faq-item">
+      <div class="faq-q">重新访问时，如何快速找到之前浏览的特定内容？</div>
+      <div class="faq-a">建议使用浏览器的历史记录搜索功能，结合站点名称或关键词过滤。若已建立收藏夹，可按主题归类存放，并定期补充备注。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">收藏页面后，如何避免信息过时？</div>
+      <div class="faq-a">可采用「书签 + 定期检查」组合策略，或使用支持快照的笔记工具（如 Notion、印象笔记）保存关键页面。对于结构稳定的站点，订阅站点地图或变更日志也是一种可行方式。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">关注多个相关页面时，有没有集中管理的方法？</div>
+      <div class="faq-a">可以建立单独的书签文件夹，或使用 start.me、Raindrop.io 等在线导航工具创建个人仪表盘。若需要更轻量的方案，一份 Markdown 索引文档也足够高效。</div>
+    </div>
+  </div>
+
+  <div class="section-title">相关信息·延伸</div>
+  <div class="related-links">
+    <a href="https://main-wnsr.com" style="border-bottom: 2px solid #b0987a;">威尼斯人</a>
+    <span style="color:#7d6e5b;">·</span>
+    <a href="#">使用指南（本地备份）</a>
+    <a href="#">收藏模板下载</a>
+    <a href="#">更新日志存档</a>
+  </div>
+  <p style="font-size:0.94rem; margin-top:0.2rem; color:#4f4236;">
+    以上链接为知识库维护者整理的参考资源，其中「威尼斯人」为原始站点入口，其余为本地辅助材料。建议将主要访问通道保留在书签首位。
+  </p>
+
+  <div class="footer-note">
+    本页面作为个人知识库入口 · 内容仅供参考 · 定期更新至 2025
+  </div>
+
+</div>
+</body>
+</html>
